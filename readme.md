@@ -1,47 +1,59 @@
-AI E-commerce Catalog (Demo)
-A tiny Node + Express app with a static catalog viewer and an AI-powered search that ranks products from natural-language queries.
+# AI E-Commerce Catalog (Demo)
 
-How to run the app
-1) Prereqs
-Node.js ≥ 18 (tested with 22.x)
+Tiny Node + Express app with:
+- **Catalog Viewer** (static list, filter by category + max price)
+- **AI Search** (natural-language query → ranked products)
 
-An OpenAI API key
+---
 
-2) Install deps
+## How to Run
+
+**Prereqs**
+- Node.js ≥ 18
+- OpenAI API key
+
+**Setup**
+```bash
 npm install
-3) Configure environment
-Create a .env at the project root:
+````
 
-bash
-Copy
+Create `.env` in the project root:
+
+```bash
 OPENAI_API_KEY=your_api_key_here
+```
 
+**Start**
+
+```bash
 npm start
 # or
 node main.js
-Open http://localhost:3000 in your browser.
+```
 
+Open: [http://localhost:3000](http://localhost:3000)
 
-Tools / Libraries used
-Express — lightweight HTTP server and static hosting
+---
 
-OpenAI Node SDK — calls the Chat Completions API with a JSON schema response format
+## AI Feature
 
-Vanilla HTML/CSS/JS for the frontend
+**Natural-language ranking** using the OpenAI API.
+The server sends the user query + candidate products and requests two arrays of product **IDs** via a strict JSON schema. It then maps IDs back to full product objects and returns:
 
-
-AI Search
-One search box for natural-language queries
-Examples: “running shoes under $100 with good reviews”, “cheap electronics”, “a good camera”
-
-Backend endpoint: GET /search?query=...
-
-The server calls OpenAI to rank products by relevance and responds in the shape the frontend expects:
-
-
+```json
 {
   "recommendedProducts": [ /* ranked product objects */ ],
-},{
-  "recommendedProducts": [ /* ranked product objects */ ],
-  "RestOfTheProducts": [ /* remaining product objects */ ]
+  "RestOfTheProducts":   [ /* remaining product objects */ ]
 }
+```
+
+---
+
+## Tools / Libraries
+
+* **Express** – HTTP server + static hosting
+* **OpenAI Node SDK** – Chat Completions with JSON schema output
+* **dotenv** – load `OPENAI_API_KEY`
+* **Vanilla HTML/CSS/JS** – no build step
+
+
