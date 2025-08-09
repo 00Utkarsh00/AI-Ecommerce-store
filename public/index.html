@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Catalog & Search</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      background: #f9f9f9;
+    }
+    header {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .tab {
+      border: 1px solid #ccc;
+      background: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .tab.active {
+      background: #007bff;
+      color: #fff;
+      border-color: #007bff;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    h2.section-title {
+      margin: 1.5rem 0 0.5rem;
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    /* --- Controls --- */
+    .controls {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+    .controls input, .controls select, .controls button {
+      padding: 0.45rem 0.6rem;
+      font-size: 0.95rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .controls button.primary {
+      border: none;
+      background: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+    .controls button.primary:hover {
+      background: #0056b3;
+    }
+
+    /* --- Grid --- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .product-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .product-card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.2rem;
+    }
+    .product-card p {
+      margin: 0.3rem 0;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    .product-card .price {
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+    .product-card .rating {
+      color: #e5a100;
+      margin-top: 0.3rem;
+    }
+
+    .message {
+      text-align: center;
+      margin-top: 2rem;
+      color: #555;
+    }
+    .error {
+      color: red;
+    }
+
+    /* Views */
+    .view { display: none; }
+    .view.active { display: block; }
+  </style>
+</head>
+<body>
+  <h1>Product Catalog</h1>
+
+  <!-- Tabs -->
+  <header>
+    <button id="tab-home" class="tab active" type="button">Home</button>
+    <button id="tab-search" class="tab" type="button">AI Search</button>
+  </header>
+
+  <!-- ===================== HOME (Catalog) ===================== -->
+  <section id="home-view" class="view active" aria-label="Catalog Home">
+    <div class="controls" id="catalog-controls">
+      <label>
+        Category:
+        <select id="filter-category">
+          <option value="">All</option>
+          <option>Electronics</option>
+          <option>Apparel</option>
+          <option>Home & Kitchen</option>
+          <option>Sports & Outdoors</option>
+          <option>Beauty & Personal Care</option>
+        </select>
+      </label>
+      <label>
+        Max Price:
+        <input id="filter-maxprice" type="number" min="0" step="0.01" placeholder="e.g. 100" />
+      </label>
+      <button id="apply-filters" class="primary" type="button">Apply</button>
+      <button id="clear-filters" type="button">Clear</button>
+    </div>
+
+    <div id="catalog-grid" class="grid"></div>
+    <div id="catalog-empty" class="message" style="display:none;">No products match your filters.</div>
+  </section>
+
+  <!-- ===================== SEARCH (AI) ===================== -->
+  <section id="search-view" class="view" aria-label="AI Search">
+    <form id="search-form" class="controls" style="max-width: 700px;">
+      <input
+        id="search-input"
+        type="text"
+        placeholder="Try: running shoes under $100 with good reviews"
+        required
+        style="flex:1; min-width: 260px;"
+      />
+      <button id="search-button" class="primary" type="submit">Search</button>
+    </form>
+
+    <div id="error" class="message error"></div>
+    <div id="search-results">
+      <div id="search-empty" class="message">No search made yet.</div>
+      <div id="products" class="grid"></div>
+    </div>
+  </section>
+
+  <script>
+
+    const SAMPLE_PRODUCTS = [
+
+      { id: 1, name: "Wireless Earbuds", price: 59.99, category: "Electronics", description: "True-wireless buds with 24-hr battery.", rating: 4.4 },
+      { id: 2, name: "Portable SSD 1TB", price: 129.99, category: "Electronics", description: "USB-C 1050 MB/s, shock-resistant.", rating: 4.7 },
+
+      { id: 3, name: "Running Shoes", price: 79.95, category: "Apparel", description: "Lightweight trainers for daily runs.", rating: 4.2 },
+      { id: 4, name: "Travel Backpack", price: 89.00, category: "Apparel", description: "30L pack with laptop sleeve.", rating: 4.8 },
+
+      { id: 5, name: "Espresso Machine", price: 249.99, category: "Home & Kitchen", description: "15-bar pump, milk frother included.", rating: 4.7 },
+      { id: 6, name: "LED Desk Lamp", price: 39.50, category: "Home & Kitchen", description: "Adjustable brightness, touch control.", rating: 4.4 },
+
+      { id: 7, name: "Yoga Mat", price: 25.00, category: "Sports & Outdoors", description: "Eco-friendly, non-slip, 6mm thick.", rating: 4.6 },
+      { id: 8, name: "Stainless Steel Bottle", price: 19.99, category: "Sports & Outdoors", description: "Insulated, 24-hr cold.", rating: 4.9 },
+
+      { id: 9, name: "Face Moisturizer", price: 17.49, category: "Beauty & Personal Care", description: "Lightweight daily hydration.", rating: 4.3 },
+      { id: 10, name: "Shampoo & Conditioner", price: 22.99, category: "Beauty & Personal Care", description: "Sulfate-free duo, 12oz each.", rating: 4.5 }
+    ];
+
+    const tabHome   = document.getElementById('tab-home');
+    const tabSearch = document.getElementById('tab-search');
+    const homeView  = document.getElementById('home-view');
+    const searchView= document.getElementById('search-view');
+
+    function setActiveTab(which) {
+      if (which === 'home') {
+        tabHome.classList.add('active'); tabSearch.classList.remove('active');
+        homeView.classList.add('active'); searchView.classList.remove('active');
+      } else {
+        tabSearch.classList.add('active'); tabHome.classList.remove('active');
+        searchView.classList.add('active'); homeView.classList.remove('active');
+      }
+    }
+    tabHome.addEventListener('click', () => setActiveTab('home'));
+    tabSearch.addEventListener('click', () => setActiveTab('search'));
+
+    function cardHTML(p) {
+      return `
+        <h3>${p.name}</h3>
+        <p class="description">${p.description}</p>
+        <p class="category"><strong>Category:</strong> ${p.category}</p>
+        <p class="price">Price: $${Number(p.price).toFixed(2)}</p>
+        <p class="rating">Rating: ${p.rating} ⭐</p>
+      `;
+    }
+
+    const catalogGrid  = document.getElementById('catalog-grid');
+    const catalogEmpty = document.getElementById('catalog-empty');
+    const filterCategory = document.getElementById('filter-category');
+    const filterMaxPrice = document.getElementById('filter-maxprice');
+    const applyFiltersBtn= document.getElementById('apply-filters');
+    const clearFiltersBtn= document.getElementById('clear-filters');
+
+    function renderCatalog(list) {
+      catalogGrid.innerHTML = '';
+      if (!list.length) {
+        catalogEmpty.style.display = 'block';
+        return;
+      }
+      catalogEmpty.style.display = 'none';
+      list.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = cardHTML(p);
+        catalogGrid.appendChild(card);
+      });
+    }
+
+    function applyCatalogFilters() {
+      const cat = filterCategory.value;
+      const max = filterMaxPrice.value ? parseFloat(filterMaxPrice.value) : null;
+
+      const filtered = SAMPLE_PRODUCTS.filter(p => {
+        const byCat  = !cat || p.category === cat;
+        const byPrice= max == null || p.price <= max;
+        return byCat && byPrice;
+      });
+      renderCatalog(filtered);
+    }
+
+    applyFiltersBtn.addEventListener('click', applyCatalogFilters);
+    clearFiltersBtn.addEventListener('click', () => {
+      filterCategory.value = '';
+      filterMaxPrice.value = '';
+      renderCatalog(SAMPLE_PRODUCTS);
+    });
+
+    renderCatalog(SAMPLE_PRODUCTS);
+
+    const form   = document.getElementById('search-form');
+    const input  = document.getElementById('search-input');
+    const grid   = document.getElementById('products');
+    const errDiv = document.getElementById('error');
+    const searchEmpty = document.getElementById('search-empty');
+
+    function renderProducts(arr) {
+      arr.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = cardHTML(p);
+        grid.appendChild(card);
+      });
+    }
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const query = input.value.trim();
+      if (!query) return;
+
+      grid.innerHTML = '';
+      errDiv.textContent = '';
+      searchEmpty.textContent = 'Loading…';
+
+      try {
+        const res = await fetch(`/search?query=${encodeURIComponent(query)}`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const { recommendedProducts, RestOfTheProducts } = await res.json();
+
+        grid.innerHTML = '';
+        searchEmpty.textContent = '';
+
+        if ((!recommendedProducts || recommendedProducts.length === 0) &&
+            (!RestOfTheProducts  || RestOfTheProducts.length  === 0)) {
+          searchEmpty.textContent = `No products found for “${query}”.`;
+          return;
+        }
+
+        if (recommendedProducts && recommendedProducts.length > 0) {
+          const h2 = document.createElement('h2');
+          h2.textContent = 'Recommended Products';
+          h2.className = 'section-title';
+          grid.appendChild(h2);
+          renderProducts(recommendedProducts);
+        }
+
+        if (RestOfTheProducts && RestOfTheProducts.length > 0) {
+          const h2 = document.createElement('h2');
+          h2.textContent = 'Other Products';
+          h2.className = 'section-title';
+          grid.appendChild(h2);
+          renderProducts(RestOfTheProducts);
+        }
+
+      } catch (err) {
+        console.error(err);
+        grid.innerHTML = '';
+        searchEmpty.textContent = '';
+        errDiv.textContent = `Failed to search: ${err.message}`;
+        setActiveTab('search');
+      }
+    });
+  </script>
+</body>
+</html>

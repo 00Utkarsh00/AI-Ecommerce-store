@@ -1,0 +1,406 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Earbuds",
+    "price": 59.99,
+    "category": "Electronics",
+    "description": "True‑wireless in‑ear buds with charging case (24‑hr total battery).",
+    "rating": 4.4
+  },
+  {
+    "id": 2,
+    "name": "4K Action Camera",
+    "price": 119.95,
+    "category": "Electronics",
+    "description": "Water‑resistant camera, 170° wide‑angle lens, includes mounting kit.",
+    "rating": 4.3
+  },
+  {
+    "id": 3,
+    "name": "Smart Home Hub",
+    "price": 89.00,
+    "category": "Electronics",
+    "description": "Voice‑controlled hub supports Wi‑Fi, Zigbee, and Bluetooth devices.",
+    "rating": 4.2
+  },
+  {
+    "id": 4,
+    "name": "Portable SSD 1TB",
+    "price": 139.99,
+    "category": "Electronics",
+    "description": "USB‑C 1050 MB/s read speed, shock‑resistant aluminum body.",
+    "rating": 4.7
+  },
+  {
+    "id": 5,
+    "name": "Gaming Mouse",
+    "price": 49.99,
+    "category": "Electronics",
+    "description": "Adjustable 16 000 DPI sensor, 6 programmable buttons, RGB lighting.",
+    "rating": 4.5
+  },
+  {
+    "id": 6,
+    "name": "Noise‑Cancelling Headphones",
+    "price": 149.99,
+    "category": "Electronics",
+    "description": "Over‑ear ANC headphones with 30‑hr battery and quick‑charge.",
+    "rating": 4.6
+  },
+  {
+    "id": 7,
+    "name": "Smart Light Bulb 2‑Pack",
+    "price": 29.99,
+    "category": "Electronics",
+    "description": "Wi‑Fi multispectrum LED bulbs, works with major voice assistants.",
+    "rating": 4.3
+  },
+  {
+    "id": 8,
+    "name": "USB‑C GaN Charger 65W",
+    "price": 34.95,
+    "category": "Electronics",
+    "description": "Compact multi‑port charger with PD, charges laptop & phone fast.",
+    "rating": 4.4
+  },
+  {
+    "id": 9,
+    "name": "Bluetooth Soundbar",
+    "price": 99.50,
+    "category": "Electronics",
+    "description": "2.1‑channel TV speaker, wireless subwoofer, optical & HDMI ARC.",
+    "rating": 4.1
+  },
+  {
+    "id": 10,
+    "name": "Drone with 1080p Camera",
+    "price": 179.00,
+    "category": "Electronics",
+    "description": "GPS, one‑key return, 30‑min flight time, includes spare props.",
+    "rating": 4.2
+  },
+
+  {
+    "id": 11,
+    "name": "Men's Slim‑Fit Jeans",
+    "price": 45.00,
+    "category": "Apparel",
+    "description": "Stretch denim, dark wash, five‑pocket design.",
+    "rating": 4.4
+  },
+  {
+    "id": 12,
+    "name": "Women's Yoga Leggings",
+    "price": 29.95,
+    "category": "Apparel",
+    "description": "High‑waist compression leggings with hidden waistband pocket.",
+    "rating": 4.6
+  },
+  {
+    "id": 13,
+    "name": "Unisex Hoodie",
+    "price": 39.99,
+    "category": "Apparel",
+    "description": "Midweight fleece, kangaroo pocket, drawstring hood.",
+    "rating": 4.3
+  },
+  {
+    "id": 14,
+    "name": "Running Shorts",
+    "price": 24.50,
+    "category": "Apparel",
+    "description": "Quick‑dry fabric, 3‑inch inseam, built‑in brief liner.",
+    "rating": 4.5
+  },
+  {
+    "id": 15,
+    "name": "Winter Beanie",
+    "price": 14.99,
+    "category": "Apparel",
+    "description": "Rib‑knit acrylic hat, double‑layer warmth.",
+    "rating": 4.7
+  },
+  {
+    "id": 16,
+    "name": "Leather Belt",
+    "price": 27.00,
+    "category": "Apparel",
+    "description": "Full‑grain leather, nickel‑free buckle, adjustable 5 holes.",
+    "rating": 4.2
+  },
+  {
+    "id": 17,
+    "name": "Cotton Crew Socks 6‑Pack",
+    "price": 18.00,
+    "category": "Apparel",
+    "description": "Cushioned sole, seamless toe, moisture‑wicking.",
+    "rating": 4.6
+  },
+  {
+    "id": 18,
+    "name": "Rain Jacket",
+    "price": 59.95,
+    "category": "Apparel",
+    "description": "Waterproof shell, breathable mesh lining, packs into pocket.",
+    "rating": 4.4
+  },
+  {
+    "id": 19,
+    "name": "Sports Bra",
+    "price": 32.00,
+    "category": "Apparel",
+    "description": "Medium‑impact support, removable pads, racerback.",
+    "rating": 4.5
+  },
+  {
+    "id": 20,
+    "name": "Linen Button‑Up Shirt",
+    "price": 42.50,
+    "category": "Apparel",
+    "description": "100 % linen, short sleeves, relaxed fit for summer.",
+    "rating": 4.3
+  },
+
+  {
+    "id": 21,
+    "name": "Stainless Steel Chef Knife",
+    "price": 29.99,
+    "category": "Home & Kitchen",
+    "description": "8‑inch blade, ergonomic handle, razor‑sharp edge.",
+    "rating": 4.7
+  },
+  {
+    "id": 22,
+    "name": "Non‑stick Frying Pan 12\"",
+    "price": 34.99,
+    "category": "Home & Kitchen",
+    "description": "PFOA‑free coating, induction‑ready base, stay‑cool handle.",
+    "rating": 4.4
+  },
+  {
+    "id": 23,
+    "name": "Ceramic Coffee Mug Set",
+    "price": 22.00,
+    "category": "Home & Kitchen",
+    "description": "Set of 4, 14 oz, microwave & dishwasher safe.",
+    "rating": 4.5
+  },
+  {
+    "id": 24,
+    "name": "Bamboo Cutting Board",
+    "price": 19.95,
+    "category": "Home & Kitchen",
+    "description": "Large 18×12 in board with juice groove.",
+    "rating": 4.6
+  },
+  {
+    "id": 25,
+    "name": "Electric Kettle 1.7 L",
+    "price": 39.99,
+    "category": "Home & Kitchen",
+    "description": "Stainless steel, auto shut‑off, 1500 W fast boil.",
+    "rating": 4.5
+  },
+  {
+    "id": 26,
+    "name": "Memory Foam Pillow",
+    "price": 35.50,
+    "category": "Home & Kitchen",
+    "description": "Ventilated gel‑infused foam, removable washable cover.",
+    "rating": 4.3
+  },
+  {
+    "id": 27,
+    "name": "Scented Soy Candle",
+    "price": 17.99,
+    "category": "Home & Kitchen",
+    "description": "8 oz lavender & vanilla, cotton wick, 45‑hr burn.",
+    "rating": 4.4
+  },
+  {
+    "id": 28,
+    "name": "Robot Vacuum",
+    "price": 219.99,
+    "category": "Home & Kitchen",
+    "description": "Wi‑Fi app control, 2000 Pa suction, self‑charging.",
+    "rating": 4.2
+  },
+  {
+    "id": 29,
+    "name": "Glass Food Storage 10‑pc",
+    "price": 28.00,
+    "category": "Home & Kitchen",
+    "description": "Borosilicate containers with locking lids, oven safe.",
+    "rating": 4.6
+  },
+  {
+    "id": 30,
+    "name": "Bathroom Shower Curtain",
+    "price": 24.99,
+    "category": "Home & Kitchen",
+    "description": "Water‑repellent 72×72 in polyester curtain + 12 hooks.",
+    "rating": 4.3
+  },
+
+  {
+    "id": 31,
+    "name": "Trekking Poles Pair",
+    "price": 49.95,
+    "category": "Sports & Outdoors",
+    "description": "Carbon fiber, quick‑lock height adjustment, cork grips.",
+    "rating": 4.7
+  },
+  {
+    "id": 32,
+    "name": "Inflatable Paddle Board",
+    "price": 329.00,
+    "category": "Sports & Outdoors",
+    "description": "10'6\" board, pump, paddle, leash & backpack included.",
+    "rating": 4.5
+  },
+  {
+    "id": 33,
+    "name": "Camping Sleeping Bag",
+    "price": 69.99,
+    "category": "Sports & Outdoors",
+    "description": "30 °F mummy bag, synthetic fill, compression sack.",
+    "rating": 4.4
+  },
+  {
+    "id": 34,
+    "name": "Baseball Glove",
+    "price": 59.50,
+    "category": "Sports & Outdoors",
+    "description": "12.5‑inch leather glove, broken‑in feel, right‑hand throw.",
+    "rating": 4.2
+  },
+  {
+    "id": 35,
+    "name": "Adjustable Dumbbell 25 lb",
+    "price": 99.99,
+    "category": "Sports & Outdoors",
+    "description": "5‑in‑1 weight increments, quick dial system.",
+    "rating": 4.6
+  },
+  {
+    "id": 36,
+    "name": "Mountain Bike Helmet",
+    "price": 57.00,
+    "category": "Sports & Outdoors",
+    "description": "MIPS technology, 17 vents, adjustable visor.",
+    "rating": 4.5
+  },
+  {
+    "id": 37,
+    "name": "Pickleball Paddle Set",
+    "price": 49.99,
+    "category": "Sports & Outdoors",
+    "description": "2 graphite paddles, 4 indoor balls, carrying case.",
+    "rating": 4.4
+  },
+  {
+    "id": 38,
+    "name": "Portable Camping Stove",
+    "price": 32.50,
+    "category": "Sports & Outdoors",
+    "description": "Single‑burner butane stove, 10 000 BTU, hard case.",
+    "rating": 4.3
+  },
+  {
+    "id": 39,
+    "name": "Fishing Tackle Box",
+    "price": 27.99,
+    "category": "Sports & Outdoors",
+    "description": "3‑tray box, removable dividers, corrosion‑resistant latches.",
+    "rating": 4.5
+  },
+  {
+    "id": 40,
+    "name": "Resistance Bands Set",
+    "price": 21.99,
+    "category": "Sports & Outdoors",
+    "description": "5 color‑coded latex bands (10‑50 lb), door anchor, handles.",
+    "rating": 4.6
+  },
+
+  {
+    "id": 41,
+    "name": "Vitamin C Serum 30 ml",
+    "price": 19.99,
+    "category": "Beauty & Personal Care",
+    "description": "20 % stabilized vitamin C, hyaluronic acid, pump bottle.",
+    "rating": 4.4
+  },
+  {
+    "id": 42,
+    "name": "Organic Shampoo 16 oz",
+    "price": 14.50,
+    "category": "Beauty & Personal Care",
+    "description": "Sulfate‑free formula with argan & coconut oils.",
+    "rating": 4.3
+  },
+  {
+    "id": 43,
+    "name": "Electric Toothbrush",
+    "price": 39.99,
+    "category": "Beauty & Personal Care",
+    "description": "Sonic tech, 5 modes, 2‑min timer, 4 brush heads.",
+    "rating": 4.6
+  },
+  {
+    "id": 44,
+    "name": "Shea Butter Body Lotion",
+    "price": 11.99,
+    "category": "Beauty & Personal Care",
+    "description": "24‑hr moisture, paraben‑free, 13.5 oz pump.",
+    "rating": 4.5
+  },
+  {
+    "id": 45,
+    "name": "Aloe Vera Gel",
+    "price": 9.95,
+    "category": "Beauty & Personal Care",
+    "description": "99 % pure aloe, after‑sun soothing, 12 oz bottle.",
+    "rating": 4.7
+  },
+  {
+    "id": 46,
+    "name": "Facial Cleansing Brush",
+    "price": 26.99,
+    "category": "Beauty & Personal Care",
+    "description": "Rechargeable silicone brush, 3 vibration speeds, waterproof.",
+    "rating": 4.4
+  },
+  {
+    "id": 47,
+    "name": "Sunscreen SPF 50",
+    "price": 13.50,
+    "category": "Beauty & Personal Care",
+    "description": "Broad‑spectrum, reef‑safe, water‑resistant 80 min.",
+    "rating": 4.6
+  },
+  {
+    "id": 48,
+    "name": "Beard Grooming Kit",
+    "price": 24.99,
+    "category": "Beauty & Personal Care",
+    "description": "Beard oil, balm, wash, brush & comb set in gift box.",
+    "rating": 4.2
+  },
+  {
+    "id": 49,
+    "name": "Nail Polish Set 6‑Color",
+    "price": 18.00,
+    "category": "Beauty & Personal Care",
+    "description": "Chip‑resistant formula, quick‑dry, cruelty‑free.",
+    "rating": 4.3
+  },
+  {
+    "id": 50,
+    "name": "Makeup Brush Set 12‑pc",
+    "price": 29.95,
+    "category": "Beauty & Personal Care",
+    "description": "Synthetic vegan bristles, includes travel pouch.",
+    "rating": 4.5
+  }
+]
